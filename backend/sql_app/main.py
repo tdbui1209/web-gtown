@@ -33,3 +33,11 @@ async def create_category(category: schemas.CategoryBase, db: Session = Depends(
 async def read_products(skip: int = 0, limit: int = 100, db: Session = Depends(SessionLocal)):
     products = crud.get_products(db, skip=skip, limit=limit)
     return products
+
+
+@app.post("/products/", response_model=schemas.Product)
+async def create_products(product: schemas.ProductBase, db: Session = Depends(SessionLocal)):
+    db_product = crud.create_products(db, product=product)
+    if db_product is None:
+        raise HTTPException(status_code=400, detail="Product already exists")
+    return db_product
