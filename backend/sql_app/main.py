@@ -27,3 +27,9 @@ async def create_category(category: schemas.CategoryBase, db: Session = Depends(
     if db_category is None:
         raise HTTPException(status_code=400, detail="Category already exists")
     return db_category
+
+
+@app.get("/products/", response_model=list[schemas.Product])
+async def read_products(skip: int = 0, limit: int = 100, db: Session = Depends(SessionLocal)):
+    products = crud.get_products(db, skip=skip, limit=limit)
+    return products
