@@ -19,3 +19,10 @@ class Products(Base):
     price = Column(Float, index=True)
     description = Column(String, index=True)
     category_id = Column(Integer, ForeignKey("categories.id"))
+
+
+class Status(Base):
+    __tablename__ = "status"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, index=True)
