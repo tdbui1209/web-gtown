@@ -43,3 +43,10 @@ class Roles(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
+
+
+class UserRoles(Base):
+    __tablename__ = "user_roles"
+
+    username = Column(String, ForeignKey("users.username"), primary_key=True)
+    role_id = Column(Integer, ForeignKey("roles.id"), primary_key=True)
