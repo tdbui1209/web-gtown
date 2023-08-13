@@ -36,3 +36,10 @@ class Users(Base):
     email = Column(String, unique=True, index=True)
     password = Column(String, index=True)
     status_id = Column(Integer, ForeignKey("status.id"))
+
+
+class Roles(Base):
+    __tablename__ = "roles"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, index=True)
