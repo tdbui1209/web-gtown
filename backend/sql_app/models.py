@@ -26,3 +26,13 @@ class Status(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
+
+
+class Users(Base):
+    __tablename__ = "users"
+
+    username = Column(String, primary_key=True, index=True)
+    name = Column(String, index=True)
+    email = Column(String, unique=True, index=True)
+    password = Column(String, index=True)
+    status_id = Column(Integer, ForeignKey("status.id"))
