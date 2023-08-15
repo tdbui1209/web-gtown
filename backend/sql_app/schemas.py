@@ -39,3 +39,7 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+
+class StatusBase(BaseModel):
+    name: str
