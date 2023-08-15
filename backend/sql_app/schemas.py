@@ -43,3 +43,10 @@ class User(UserBase):
 
 class StatusBase(BaseModel):
     name: str
+
+
+class Status(StatusBase):
+    id: int
+
+    class Config:
+        from_attributes = True
