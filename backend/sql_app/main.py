@@ -51,7 +51,7 @@ async def create_products(product: schemas.ProductBase, db: Session = Depends(ge
     return db_product
 
 
-@app.get("users/", response_model=list[schemas.User])
+@app.get("/users/", response_model=list[schemas.User])
 async def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = crud.get_users(db, skip=skip, limit=limit)
     return users
@@ -81,7 +81,7 @@ async def read_status(username: str, db: Session = Depends(get_db)):
     return db_status
 
 
-@app.post("roles/", response_model=schemas.Role)
+@app.post("/roles/", response_model=schemas.Role)
 async def create_role(role: schemas.RoleBase, db: Session = Depends(get_db)):
     db_role = crud.create_role(db, role=role)
     if db_role is None:
