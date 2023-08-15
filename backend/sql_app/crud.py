@@ -47,3 +47,13 @@ def create_user(db: Session, user: schemas.UserBase):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def create_role(db: Session, role: schemas.RoleBase):
+    db_role = models.Roles(
+        name=role.name,
+    )
+    db.add(db_role)
+    db.commit()
+    db.refresh(db_role)
+    return db_role
