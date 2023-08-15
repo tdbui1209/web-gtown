@@ -79,3 +79,11 @@ async def read_status(username: str, db: Session = Depends(get_db)):
     if db_status is None:
         raise HTTPException(status_code=404, detail="Status not found")
     return db_status
+
+
+@app.post("roles/", response_model=schemas.Role)
+async def create_role(role: schemas.RoleBase, db: Session = Depends(get_db)):
+    db_role = crud.create_role(db, role=role)
+    if db_role is None:
+        raise HTTPException(status_code=400, detail="Role already exists")
+    return db_role
