@@ -57,3 +57,7 @@ def create_role(db: Session, role: schemas.RoleBase):
     db.commit()
     db.refresh(db_role)
     return db_role
+
+
+def get_status(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Status).offset(skip).limit(limit).all()
