@@ -35,7 +35,7 @@ class UserBase(BaseModel):
 
 
 class User(UserBase):
-    id: int
+    username: str
 
     class Config:
         from_attributes = True
