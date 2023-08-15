@@ -50,3 +50,7 @@ class Status(StatusBase):
 
     class Config:
         from_attributes = True
+
+
+class RoleBase(BaseModel):
+    name: str
