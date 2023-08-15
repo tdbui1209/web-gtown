@@ -31,11 +31,11 @@ class UserBase(BaseModel):
     name: str
     email: str
     password: str
-    status_id: int
 
 
 class User(UserBase):
     username: str
+    status_id: int
 
     class Config:
         from_attributes = True
