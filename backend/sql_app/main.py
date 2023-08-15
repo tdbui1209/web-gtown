@@ -63,3 +63,11 @@ async def create_user(user: schemas.UserBase, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=400, detail="User already exists")
     return db_user
+
+
+@app.post("/status/", response_model=schemas.Status)
+async def create_status(status: schemas.StatusBase, db: Session = Depends(get_db)):
+    db_status = crud.create_status(db, status=status)
+    if db_status is None:
+        raise HTTPException(status_code=400, detail="Status already exists")
+    return db_status
