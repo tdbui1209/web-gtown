@@ -24,3 +24,11 @@ class Product(ProductBase):
 
     class Config:
         from_attributes = True
+
+
+class UserBase(BaseModel):
+    username: str
+    name: str
+    email: str
+    password: str
+    status_id: int
