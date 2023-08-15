@@ -30,3 +30,7 @@ def create_products(db: Session, product: schemas.ProductBase):
     db.commit()
     db.refresh(db_product)
     return db_product
+
+
+def get_users(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Users).offset(skip).limit(limit).all()
