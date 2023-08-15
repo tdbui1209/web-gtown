@@ -65,3 +65,13 @@ def get_status(db: Session, skip: int = 0, limit: int = 100):
 
 def get_status_by_user(db: Session, username: str):
     return db.query(models.Status).filter(models.Status.id == username).first()
+
+
+def create_status(db: Session, status: schemas.StatusBase):
+    db_status = models.Status(
+        name=status.name,
+    )
+    db.add(db_status)
+    db.commit()
+    db.refresh(db_status)
+    return db_status
