@@ -71,3 +71,11 @@ async def create_status(status: schemas.StatusBase, db: Session = Depends(get_db
     if db_status is None:
         raise HTTPException(status_code=400, detail="Status already exists")
     return db_status
+
+
+@app.get("/status/{username}", response_model=schemas.Status)
+async def read_status(username: str, db: Session = Depends(get_db)):
+    db_status = crud.get_status_by_user(db, username=username)
+    if db_status is None:
+        raise HTTPException(status_code=404, detail="Status not found")
+    return db_status
