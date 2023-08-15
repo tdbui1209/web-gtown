@@ -32,3 +32,10 @@ class UserBase(BaseModel):
     email: str
     password: str
     status_id: int
+
+
+class User(UserBase):
+    id: int
+
+    class Config:
+        from_attributes = True
