@@ -15,3 +15,12 @@ status_router = APIRouter(
 @status_router.get("/", response_model=list[statuses.StatusInDBBase])
 async def read_statuses(skip: int = 0, limit: int = 100, db: Session = Depends(get_session)):
     return db.query(Status).offset(skip).limit(limit).all()
+
+
+@status_router.post("/", response_model=statuses.StatusInDBBase, status_code=status.HTTP_201_CREATED)
+async def create_status(status: statuses.StatusCreate, db: Session = Depends(get_session)):
+    db_status = Status(name=status.name)
+    db.add(db_status)
+    db.commit()
+    db.refresh(db_status)
+    return db_status
