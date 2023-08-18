@@ -80,3 +80,11 @@ def create_status(db: Session, status: schemas.StatusBase):
 
 def get_status(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Status).offset(skip).limit(limit).all()
+
+
+def update_status(db: Session, username: str, status_id: int):
+    db_user = db.query(models.Users).filter(models.Users.username == username).first()
+    db_user.status_id = status_id
+    db.commit()
+    db.refresh(db_user)
+    return db_user
