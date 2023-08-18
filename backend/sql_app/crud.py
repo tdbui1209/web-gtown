@@ -76,3 +76,7 @@ def create_status(db: Session, status: schemas.StatusBase):
     db.commit()
     db.refresh(db_status)
     return db_status
+
+
+def get_status(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Status).offset(skip).limit(limit).all()
