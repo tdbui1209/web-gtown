@@ -87,3 +87,9 @@ async def create_role(role: schemas.RoleBase, db: Session = Depends(get_db)):
     if db_role is None:
         raise HTTPException(status_code=400, detail="Role already exists")
     return db_role
+
+
+@app.get("/status/", response_model=list[schemas.Status])
+async def read_status(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    status = crud.get_status(db, skip=skip, limit=limit)
+    return status
