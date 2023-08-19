@@ -5,12 +5,14 @@ import uvicorn
 from database.connection import Base, engine
 
 from routes.categories import category_router
+from routes.statuses import status_router
 
 
 app = FastAPI()
 
 # Register routes
 app.include_router(category_router)
+app.include_router(status_router)
 
 
 @app.on_event("startup")
