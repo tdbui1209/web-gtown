@@ -3,11 +3,11 @@ from pydantic import BaseModel
 
 
 class StatusBase(BaseModel):
-    name: Optional[str] = None
+    name: str
 
 
 class StatusCreate(StatusBase):
-    name: str
+    pass
 
 
 class StatusInDBBase(StatusBase):
