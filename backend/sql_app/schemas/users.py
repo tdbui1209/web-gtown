@@ -7,7 +7,11 @@ class UserBase(BaseModel):
 
 
 class UserCreate(UserBase):
-    pass
+    username: str
+    name: str
+    email: str
+    password: str
+    status_id: int
 
 
 class UserInDBBase(UserBase):
