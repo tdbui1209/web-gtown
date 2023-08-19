@@ -12,6 +12,6 @@ user_router = APIRouter(
 )
 
 
-@user_router.get("/", response_model=list[users.UserBase])
-async def read_users(skip: int = 0, limit: int = 0, db: Session = Depends(get_session)):
+@user_router.get("/")
+async def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_session)):
     return db.query(Users).offset(skip).limit(limit).all()
