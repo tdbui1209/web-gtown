@@ -6,6 +6,7 @@ from database.connection import Base, engine
 
 from routes.categories import category_router
 from routes.statuses import status_router
+from routes.users import user_router
 
 
 app = FastAPI()
@@ -13,6 +14,7 @@ app = FastAPI()
 # Register routes
 app.include_router(category_router)
 app.include_router(status_router)
+app.include_router(user_router)
 
 
 @app.on_event("startup")
