@@ -11,7 +11,6 @@ class UserCreate(UserBase):
     name: str
     email: str
     password: str
-    status_id: int
 
 
 class UserInDBBase(UserBase):
