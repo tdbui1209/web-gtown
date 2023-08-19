@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
 from database.connection import get_session
-from models.models import Status
+from models.models import Status, Users
 from schemas import statuses
 
 
@@ -24,3 +24,12 @@ async def create_status(status: statuses.StatusCreate, db: Session = Depends(get
     db.commit()
     db.refresh(db_status)
     return db_status
+
+
+@status_router.get("/{username}/")
+async def read_user_status(username: str, db: Session = Depends(get_session)):
+    result = db.query(Users, Status).filter(Users.username == username).join(Status).one()
+    return {
+        "username": result.Users.username,
+        "status": result.Status.name
+    }
