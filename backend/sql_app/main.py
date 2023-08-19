@@ -2,8 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 import uvicorn
 
-from models.models import Base
-from database.connection import engine
+from database.connection import Base, engine
 
 from routes.categories import category_router
 
