@@ -13,12 +13,15 @@ status_router = APIRouter(
 
 
 @status_router.get("/", response_model=list[statuses.StatusInDBBase])
-async def read_statuses(skip: int = 0, limit: int = 100, db: Session = Depends(get_session)):
+async def read_statuses(skip: int = 0, limit: int = 100,
+                        db: Session = Depends(get_session)):
     return db.query(Status).offset(skip).limit(limit).all()
 
 
-@status_router.post("/", response_model=statuses.StatusInDBBase, status_code=status.HTTP_201_CREATED)
-async def create_status(status: statuses.StatusCreate, db: Session = Depends(get_session)):
+@status_router.post("/", response_model=statuses.StatusInDBBase,
+                    status_code=status.HTTP_201_CREATED)
+async def create_status(status: statuses.StatusCreate,
+                        db: Session = Depends(get_session)):
     db_status = Status(name=status.name)
     db.add(db_status)
     db.commit()
@@ -27,8 +30,10 @@ async def create_status(status: statuses.StatusCreate, db: Session = Depends(get
 
 
 @status_router.get("/{username}/")
-async def read_user_status(username: str, db: Session = Depends(get_session)):
-    result = db.query(Users, Status).filter(Users.username == username).join(Status).one()
+async def read_user_status(username: str,
+                           db: Session = Depends(get_session)):
+    result = db.query(Users, Status).filter(
+        Users.username == username).join(Status).one()
     return {
         "username": result.Users.username,
         "status": result.Status.name

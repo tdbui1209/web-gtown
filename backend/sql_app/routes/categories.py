@@ -12,12 +12,15 @@ category_router = APIRouter(
 
 
 @category_router.get("/", response_model=list[categories.CategoryInDBBase])
-async def read_categories(skip: int = 0, limit: int = 100, db: Session = Depends(get_session)):
+async def read_categories(skip: int = 0, limit: int = 100,
+                          db: Session = Depends(get_session)):
     return db.query(Categories).offset(skip).limit(limit).all()
 
 
-@category_router.post("/", response_model=categories.CategoryInDBBase, status_code=status.HTTP_201_CREATED)
-async def create_category(category: categories.CategoryCreate, db: Session = Depends(get_session)):
+@category_router.post("/", response_model=categories.CategoryInDBBase,
+                      status_code=status.HTTP_201_CREATED)
+async def create_category(category: categories.CategoryCreate,
+                          db: Session = Depends(get_session)):
     db_category = Categories(name=category.name)
     db.add(db_category)
     db.commit()
