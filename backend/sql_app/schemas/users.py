@@ -28,3 +28,8 @@ class UserUpdate(UserBase):
     username: str
     password: Optional[str] = None
     status_id: Optional[int] = None
+
+
+class UserLogin(UserBase):
+    username: str
+    password: str
