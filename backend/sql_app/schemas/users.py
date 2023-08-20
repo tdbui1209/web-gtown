@@ -22,3 +22,9 @@ class UserInDBBase(UserBase):
 
     class Config:
         from_attributes = True
+
+
+class UserUpdate(UserBase):
+    username: str
+    password: Optional[str] = None
+    status_id: Optional[int] = None
