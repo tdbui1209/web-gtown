@@ -44,3 +44,17 @@ async def update_status_of_user(user: users.UserUpdate,
     db.commit()
     return JSONResponse(status_code=status.HTTP_200_OK,
                     content={"message": "User status updated successfully"})
+
+
+@user_router.post("/login")
+async def login_user(user: users.UserLogin,
+                     db: Session = Depends(get_session)):
+    db_user = db.query(Users).filter(Users.username == user.username).one()
+    if not db_user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail="User not found")
+    if db_user.password != user.password:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+                            detail="Incorrect password")
+    return JSONResponse(status_code=status.HTTP_200_OK,
+                        content={"message": "Login successful"})
