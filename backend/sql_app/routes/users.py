@@ -31,3 +31,16 @@ async def create_user(user: users.UserCreate,
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+@user_router.put("/")
+async def update_status_of_user(user: users.UserUpdate,
+                                db: Session = Depends(get_session)):
+    db_user = db.query(Users).filter(Users.username == user.username).one()
+    if not db_user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail="User not found")
+    db_user.status_id = user.status_id
+    db.commit()
+    return JSONResponse(status_code=status.HTTP_200_OK,
+                    content={"message": "User status updated successfully"})
