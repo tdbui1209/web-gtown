@@ -3,10 +3,14 @@
 ```
 sql_app
 ├── database
+├── migrations
 ├── models
 ├── routes
 ├── schemas
-└── main.py          - FastAPI application creation and configuration.
+├── __init__.py
+├── alembic.ini
+├── main.py          - FastAPI application creation and configuration.
+└── requirements.txt - Python dependencies.
 ```
 
 # Web routes
