@@ -4,16 +4,15 @@ from pydantic import BaseModel
 
 
 class ProductCategoryBase(BaseModel):
-    pass
+    product_category_name: str
 
     class Config:
         from_attribute = True
 
 
 class ProductCategoryCreate(ProductCategoryBase):
-    product_category_name: str
+    pass
 
 
 class ProductCategoryItem(ProductCategoryBase):
     id: int
-    product_category_name: str
