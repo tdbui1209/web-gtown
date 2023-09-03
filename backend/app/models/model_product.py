@@ -8,3 +8,7 @@ class Products(Base):
     product_price = Column(Integer, nullable=False)
     product_description = Column(String(200), nullable=True)
     product_category_id = Column(Integer, ForeignKey('productcategories.id'))
+
+
+class ProductCategories(Base):
+    product_category_name = Column(String(20), nullable=False)

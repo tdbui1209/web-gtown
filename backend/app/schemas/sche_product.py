@@ -20,3 +20,18 @@ class ProductCreate(ProductBase):
 
 class ProductItem(ProductBase):
     id: int
+
+
+class ProductCategoryBase(BaseModel):
+    product_category_name: str
+
+    class Config:
+        from_attribute = True
+
+
+class ProductCategoryCreate(ProductCategoryBase):
+    pass
+
+
+class ProductCategoryItem(ProductCategoryBase):
+    id: int

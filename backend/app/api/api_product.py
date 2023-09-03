@@ -2,9 +2,8 @@ import logging
 from fastapi import APIRouter, HTTPException
 from fastapi_sqlalchemy import db
 
-from app.schemas.sche_product import ProductCreate, ProductItem
-from app.models.model_product import Products
-from app.models.model_product_category import ProductCategories
+from app.schemas.sche_product import ProductCreate, ProductItem, ProductCategoryCreate, ProductCategoryItem
+from app.models.model_product import Products, ProductCategories
 
 
 logger = logging.getLogger()
@@ -46,5 +45,27 @@ def read_products_by_category(category: str):
             raise HTTPException(status_code=404, detail=f'Category {category} not found')
         products = db.session.query(Products).filter(Products.id == category.id).all()
         return products
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=logger.error(e))
+
+
+@router.get('/', response_model=list[ProductCategoryItem])
+def read_product_categories():
+    try:
+        product_categories = db.session.query(ProductCategories).all()
+        return product_categories
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=logger.error(e))
+    
+
+@router.post('/', response_model=ProductCategoryCreate)
+def create_product_category(product_category: ProductCategoryCreate):
+    try:
+        db_category = ProductCategories(
+            product_category_name=product_category.product_category_name
+        )
+        db.session.add(db_category)
+        db.session.commit()
+        return product_category
     except Exception as e:
         raise HTTPException(status_code=500, detail=logger.error(e))
