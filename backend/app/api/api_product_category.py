@@ -2,8 +2,8 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_sqlalchemy import db
 
-from schemas.sche_product_category import ProductCategoryCreate, ProductCategoryItem
-from models.model_product_category import ProductCategories
+from app.schemas.sche_product_category import ProductCategoryCreate, ProductCategoryItem
+from app.models.model_product_category import ProductCategories
 
 
 logger = logging.getLogger()

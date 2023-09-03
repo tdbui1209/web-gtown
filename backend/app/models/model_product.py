@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, String
 
-from .model_base import Base
+from app.models.model_base import Base
 
 
 class Products(Base):

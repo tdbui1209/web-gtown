@@ -5,10 +5,10 @@ from fastapi import FastAPI
 from fastapi_sqlalchemy import DBSessionMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
-from api.api_router import router
-from models.model_base import Base
-from db.base import engine
-from core.config import settings
+from app.api.api_router import router
+from app.models.model_base import Base
+from app.db.base import engine
+from app.core.config import settings
 
 
 logging.config.fileConfig(settings.LOGGING_CONFIG, disable_existing_loggers=False)
@@ -31,5 +31,3 @@ def get_application() -> FastAPI:
 
 
 app = get_application()
-if __name__ == '__main__':
-    uvicorn.run(app, host='192.168.1.11', port=5000)
