@@ -1,0 +1,25 @@
+:root{
+  --body-dark: #00193B;
+  --input-border: #354585;
+  --body-darker: #25305f;
+  --button-color: #4F89FC;
+}
+#header{
+  background-color: var(--body-dark);
+  color: white!important;
+}
+.navItem{
+  color: white!important;
+}
+.title{
+  color: gray;
+}
+.button_admin{
+  color: white;
+  background-color: var(--body-dark);
+  transition: 0.4s;
+}
+.button_admin:hover{
+  color: white;
+  background-color: var(--button-color);
+}

@@ -1,0 +1,21 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+.logoShop{
+  height: 100px;
+  width: 200px;
+}
+.navItem{
+  text-decoration: none;
+  font-size: 14pt;
+}
+.navItem:hover{
+  opacity: 0.5;
+}
+#log-out{
+  font-size: 20pt;
+}
+
