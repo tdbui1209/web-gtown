@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes ,Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import QuanLySanPham from './views/QuanLySanPham';
+import QuanLyLoaiSanPham from './views/QuanLyLoaiSanPham';
 
 class App extends Component{
   render(){
@@ -9,8 +9,8 @@ class App extends Component{
       <React.StrictMode>
         <BrowserRouter>
           <Routes>
-            <Route exact path='/' element={<QuanLySanPham/>}>
-            </Route>
+            <Route exact path='/'></Route>
+            <Route path='/quan_ly_loai_san_pham' element={<QuanLyLoaiSanPham/>}></Route>
           </Routes>
         </BrowserRouter>
       </React.StrictMode>

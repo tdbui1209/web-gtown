@@ -11,12 +11,14 @@ const Header = () => {
         </div>
         <div className="col-md-8 d-flex justify-content-around" id="header-center">
           <a href="abc" className="navItem font-weight-bold">TRANG CHỦ</a>
+          <a href="abc" className="navItem font-weight-bold">LOẠI SẢN PHẨM</a>
+          <a href="abc" className="navItem font-weight-bold">NHÀ SẢN XUẤT</a>
           <a href="abc" className="navItem font-weight-bold">SẢN PHẨM</a>
           <a href="abc" className="navItem font-weight-bold">NGƯỜI DÙNG</a>
           <a href="abc" className="navItem font-weight-bold">TIN TỨC</a>
         </div> 
         <div className="col-md-2 px-5 text-right" id="header-right">
-          <i className="bi bi-box-arrow-right" id="log-out"></i>
+          <i className="bi bi-box-arrow-right icon-admin"></i>
         </div>
       </div>
     </header>

@@ -9,13 +9,17 @@
   width: 200px;
 }
 .navItem{
-  text-decoration: none;
+  text-decoration: none!important;
   font-size: 14pt;
 }
 .navItem:hover{
   opacity: 0.5;
 }
-#log-out{
+.icon-admin{
   font-size: 20pt;
+}
+.icon-admin:hover{
+  opacity: 0.5;
+  cursor: pointer;
 }
 
