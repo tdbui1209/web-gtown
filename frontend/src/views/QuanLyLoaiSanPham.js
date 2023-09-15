@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../components/admin/header";
+import Navbar from "../components/admin/Navbar";
 import FormQuanLyLoaiSanPham from "../components/admin/FormQuanLyLoaiSanPham";
 import TableLoaiSanPham from "../components/admin/TableLoaiSanPham";
 
 const QuanLyLoaiSanPham = () =>{
   return(
     <div>
-      <Header/>
+      <Navbar/>
       <FormQuanLyLoaiSanPham/>
       <TableLoaiSanPham/>
     </div>
