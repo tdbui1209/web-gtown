@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 :root{
   --body-dark: #00193B;
   --input-border: #354585;
@@ -8,7 +9,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat';
+  font-family: 'Roboto', sans-serif;
 }
 #header{
 	display: flex;
@@ -16,7 +17,6 @@
 	justify-content: space-between;
 	height: 80px;
 	padding: 0 2rem;
-
 }
 .logoShop{
   height: 55px;
@@ -44,7 +44,21 @@
 #main{
   position:inherit;
 }
+/*
+  Do khi thu nhỏ giao diện header nhận luôn class này nên ta phải css cho nó. Nếu không nó lấy header nav bên dưới và xổ navbar xuống
+*/
+#header .responsive_nav{
+  display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 2rem;
+}
 @media only screen and (max-width: 1024px){
+  .logoShop{
+    height: 40px;
+    width: 160px;
+  }
   #header .nav_btn{
     visibility: visible;
     opacity: 1;
@@ -62,6 +76,8 @@
     gap: 1.5rem;
     background-color: var(--body-dark);
     transition: 1s;
+    /* transform: translateY(); */
+    z-index: 1;
   }
   #header .responsive_nav{
     transform: translateY(-100vh);
@@ -73,6 +89,9 @@
   }
   #nav .navItem{
     font-size: 1.5rem;
+  }
+  .main_admin_site, .table_admin_site{
+    z-index: 2;
   }
 }
 

@@ -23,7 +23,7 @@ const FormQuanLyLoaiSanPham = () => {
     })
   }
   return(
-    <main id="main">
+    <main className="main_admin_site">
       <div className="col-md-12 px-3 py-2">
         <h2 className="font-weight-bold">Overview</h2>
       </div>

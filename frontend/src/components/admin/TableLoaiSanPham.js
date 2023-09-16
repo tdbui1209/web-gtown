@@ -11,10 +11,10 @@ const TableLoaiSanPham = () => {
 
   return (
     <div className="col-md-12 overflow-auto">
-      <table className="table table-striped table-bordered">
+      <table className="table table-striped table-bordered table_admin_site">
         <thead>
           <tr>
-            <th><i className="bi bi-key-fill"></i> Mã</th>
+            <th className="text-center"><i className="bi bi-key-fill"></i> Mã</th>
             <th>Tên loại sản phẩm</th>
             <th className="text-center">Hành động</th>
           </tr>
