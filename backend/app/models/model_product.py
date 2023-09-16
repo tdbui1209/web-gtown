@@ -11,4 +11,4 @@ class Products(Base):
 
 
 class ProductCategories(Base):
-    product_category_name = Column(String(20), nullable=False)
+    product_category_name = Column(String(20), nullable=False, unique=True)
