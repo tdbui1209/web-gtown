@@ -21,6 +21,14 @@ def read_products():
 
 @router.post('/', response_model=ProductCreate)
 def create_product(product: ProductCreate):
+    if len(product.product_name) == 0:
+        raise HTTPException(status_code=400, detail='Product name cannot be empty')
+    if product.product_price <= 0:
+        raise HTTPException(status_code=400, detail='Product price must be greater than 0')
+    if db.session.query(ProductCategories).filter(
+        ProductCategories.id == product.product_category_id
+    ).first() is None:
+        raise HTTPException(status_code=400, detail=f'Product category {product.product_category_id} does not exist')
     try:
         db_product = Products(
             product_name=product.product_name,
