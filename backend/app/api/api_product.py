@@ -49,7 +49,7 @@ def read_products_by_category(category: str):
         raise HTTPException(status_code=500, detail=logger.error(e))
 
 
-@router.get('/', response_model=list[ProductCategoryItem])
+@router.get('/categories', response_model=list[ProductCategoryItem])
 def read_product_categories():
     try:
         product_categories = db.session.query(ProductCategories).all()
@@ -58,8 +58,14 @@ def read_product_categories():
         raise HTTPException(status_code=500, detail=logger.error(e))
     
 
-@router.post('/', response_model=ProductCategoryCreate)
+@router.post('/categories', response_model=ProductCategoryCreate)
 def create_product_category(product_category: ProductCategoryCreate):
+    if len(product_category.product_category_name) == 0:
+        raise HTTPException(status_code=400, detail='Product category name cannot be empty')
+    if db.session.query(ProductCategories).filter(
+        ProductCategories.product_category_name == product_category.product_category_name
+    ).first():
+        raise HTTPException(status_code=400, detail=f'Product category {product_category.product_category_name} already exists')
     try:
         db_category = ProductCategories(
             product_category_name=product_category.product_category_name
