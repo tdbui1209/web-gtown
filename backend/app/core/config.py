@@ -9,7 +9,7 @@ load_dotenv(os.path.join(Base_DIR, '.env'))
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = os.getenv('PROJECT_NAME')
-    SECRECT_KEY: str = os.getenv('SECRET_KEY')
+    SECRET_KEY: str = os.getenv('SECRET_KEY')
     API_PREFIX: str = os.getenv('API_PREFIX')
     BACKEND_CORS_ORIGINS: list = ['*']
     ALGORITHM: str = 'HS256'
