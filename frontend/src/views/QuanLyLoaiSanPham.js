@@ -7,8 +7,8 @@ const QuanLyLoaiSanPham = () =>{
   return(
     <div>
       <Navbar/>
-      <FormQuanLyLoaiSanPham/>
-      <TableLoaiSanPham/>
+      {/* <FormQuanLyLoaiSanPham/>
+      <TableLoaiSanPham/> */}
     </div>
   );
 }
