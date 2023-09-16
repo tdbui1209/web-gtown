@@ -1,9 +1,9 @@
 import logging
 
-import uvicorn
 from fastapi import FastAPI
 from fastapi_sqlalchemy import DBSessionMiddleware
 from starlette.middleware.cors import CORSMiddleware
+from starlette.middleware.sessions import SessionMiddleware
 
 from app.api.api_router import router
 from app.models.model_base import Base
@@ -25,8 +25,8 @@ def get_application() -> FastAPI:
         allow_headers=['*'],
     )
     application.add_middleware(DBSessionMiddleware, db_url=settings.DATABASE_URL)
+    application.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
     application.include_router(router, prefix=settings.API_PREFIX)
-
     return application
 
 
