@@ -26,3 +26,29 @@
   color: white;
   background-color: var(--button-color);
 }
+
+.button_blue {
+  background-color: #1739B0;
+}
+
+.body_signin_signup{
+  background-image: linear-gradient(#1739B0, #787586);
+}
+#sign_in_left_side,
+#sign_up_container {
+  background-color: black;
+}
+
+.link {
+  color: white !important;
+}
+
+#user_name,
+#password,
+#email,
+#phone_number,
+#confirm_password {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}

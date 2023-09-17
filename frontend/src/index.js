@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import AdminAppRoutes from './routes/admin_routes';
-import Navbar from './components/admin/Navbar';
+// import Navbar from './components/admin/Navbar';
 const App = () => {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <Navbar/>
+        {/* <Navbar/> */}
         <AdminAppRoutes />
       </BrowserRouter>
     </React.StrictMode>
