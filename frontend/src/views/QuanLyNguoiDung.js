@@ -3,16 +3,16 @@ import React from "react";
 import { Helmet } from 'react-helmet';
 import Navbar from "../components/admin/Navbar";
 
-const QuanLySanPham = () =>{
+const QuanLyNguoiDung = () =>{
   return(
     <div>
       <Helmet>
-        <title>Quản lý sản phẩm</title>
+        <title>Quản lý người dùng</title>
       </Helmet>
       <Navbar/>
-      <h3>Quản lý sản phẩm</h3>
+      <h3>Quản lý người dùng</h3>
     </div>
   );
 }
 
-export default QuanLySanPham;
+export default QuanLyNguoiDung;
