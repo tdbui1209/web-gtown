@@ -14,7 +14,7 @@
 .title{
   color: gray;
 }
-#header .nav_btn, .sign_out_btn{
+#header .nav_close_btn, .nav_btn, .sign_out_btn{
   color: white!important;
 }
 .button_admin{

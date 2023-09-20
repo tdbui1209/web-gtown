@@ -29,13 +29,19 @@
 .navItem:hover{
   opacity: 0.5;
 }
-#header .sign_out_btn, .nav_btn{
+#header .nav_close_btn, .sign_out_btn, .nav_btn{
   padding: 5px;
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
   font-size: 25px;
+}
+.nav_close_btn{
+  visibility: hidden;
+}
+.nav_close_btn:hover{
+  opacity: 0.5;
 }
 #header .nav_btn{
   visibility: hidden;
@@ -62,8 +68,12 @@
   height: 50px;
 }
 .link {
-  text-decoration: none;
   font-size: 9pt;
+  border: none;
+  background: transparent;
+}
+.link:hover{
+  opacity: 0.3;
 }
 #sign_in_right_side {
   display: block;
@@ -105,9 +115,12 @@
     height: 40px;
     width: 160px;
   }
-  #header .nav_btn{
+  /* #header .nav_btn{
     visibility: visible;
     opacity: 1;
+  } */
+  .nav_close_btn {
+    visibility: visible;
   }
   #header #nav {
     position: fixed;
@@ -122,7 +135,6 @@
     gap: 1.5rem;
     background-color: var(--body-dark);
     transition: 1s;
-    /* transform: translateY(); */
     z-index: 1;
   }
   #header .responsive_nav{
